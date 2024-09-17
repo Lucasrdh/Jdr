@@ -7,10 +7,10 @@ use Illuminate\Http\Request;
 
 class PersonnageController extends Controller
 {
-    public function index()
+    public function personnages()
     {
-        $personnages = Personnage::with(['competences', 'equipements', 'objets'])->get();
-        return view('personnages.index', compact('personnages'));
+        $personnages = Personnage::all();  // Récupère tous les personnages
+        return view('personnages.personnages', compact('personnages'));
     }
 
 }

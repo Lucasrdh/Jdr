@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PersonnageController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -7,8 +8,7 @@ Route::get('/', function () {
 })->name('home');
 
 // Route pour la page Personnages
-Route::get('/personnages', [App\Http\Controllers\PersonnageController::class, 'index'])->name('personnages');
-
+Route::get('/personnages', [PersonnageController::class, 'personnages'])->name('personnages');
 
 // Route pour la page Marchand
 Route::get('/marchands', function () {
