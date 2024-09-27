@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PersonnageController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ObjetController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -26,6 +27,7 @@ Route::get('/competences', function () {
 })->name('competences');
 
 // Route pour la page Objets
-Route::get('/objets', function () {
-    return view('objets');
-})->name('objets');
+Route::get('/objets', [ObjetController::class, 'index'])->name('objets');
+
+
+Route::get('/personnages/{id}', [PersonnageController::class, 'show'])->name('personnage.show');

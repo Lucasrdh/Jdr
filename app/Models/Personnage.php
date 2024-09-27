@@ -26,4 +26,5 @@ class Personnage extends Model
         'malade',
         'tres_malade',
     ];
+
 }

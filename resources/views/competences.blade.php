@@ -1,15 +1,8 @@
-<!-- resources/views/personnages.blade.php -->
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Compétences</title>
-</head>
-<body>
+@extends('layouts.app')
 
-<h1>Liste des compétences</h1>
-<p>Contenu à venir...</p>
+@section('title', 'Competences')
 
-</body>
-</html>
+@section('content')
+    <h1>Les compétences !</h1>
+
+@endsection

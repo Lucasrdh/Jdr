@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
-@section('title', 'Histoire')
+@section('title', 'Mon personnage')
 
 @section('content')
-    <h1>L'histoire jusqu'ici</h1>
+    <h1>Mon personnage</h1>
     <!-- Ici, tu peux afficher la liste des personnages -->
 
 @endsection
