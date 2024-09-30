@@ -15,4 +15,10 @@ class Classe extends Model
     public function objets() {
         return $this->belongsToMany(Objet::class, 'objet_classe');
     }
+
+    // Relation avec les compétences
+    public function competences()
+    {
+        return $this->hasMany(Competence::class, 'classe_id');
+    }
 }

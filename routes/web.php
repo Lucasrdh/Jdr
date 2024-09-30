@@ -3,6 +3,7 @@
 use App\Http\Controllers\PersonnageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ObjetController;
+use App\Http\Controllers\CompetenceController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -21,10 +22,9 @@ Route::get('/histoire', function () {
     return view('histoire');
 })->name('histoire');
 
+
 // Route pour la page Compétences
-Route::get('/competences', function () {
-    return view('competences');
-})->name('competences');
+Route::get('/competences', [CompetenceController::class, 'showCompetences'])->name('competences');
 
 // Route pour la page Objets
 Route::get('/objets', [ObjetController::class, 'index'])->name('objets');
