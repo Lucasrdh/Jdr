@@ -9,11 +9,10 @@ class Competence extends Model
 {
     use HasFactory;
 
-    protected $table = 'competence'; // Nom de la table
+    protected $table = 'competences';
 
-    // Relation avec la classe
-    public function classe()
+    public function personnages()
     {
-        return $this->belongsTo(Classe::class, 'classe_id');
+        return $this->belongsToMany(Personnage::class, 'personnage_competence');
     }
 }

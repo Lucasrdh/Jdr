@@ -9,16 +9,11 @@ class Classe extends Model
 {
     use HasFactory;
 
-    protected $table = 'classe'; // Nom de la table dans la base de données
+    protected $table = 'classes';
 
-    // Relation avec les objets
-    public function objets() {
-        return $this->belongsToMany(Objet::class, 'objet_classe');
-    }
-
-    // Relation avec les compétences
-    public function competences()
+    public function personnages()
     {
-        return $this->hasMany(Competence::class, 'classe_id');
+        return $this->belongsToMany(Personnage::class, 'personnage_classe');
     }
 }
+

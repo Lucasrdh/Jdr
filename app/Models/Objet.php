@@ -9,10 +9,11 @@ class Objet extends Model
 {
     use HasFactory;
 
-    protected $table = 'objets'; // Nom de la table dans la base de données
+    protected $table = 'objets';
 
-    // Relation avec les classes
-    public function classes() {
-        return $this->belongsToMany(Classe::class, 'objet_classe');
+    public function personnages()
+    {
+        return $this->belongsToMany(Personnage::class, 'personnage_objet', 'objet_id', 'personnage_id');
     }
+
 }
