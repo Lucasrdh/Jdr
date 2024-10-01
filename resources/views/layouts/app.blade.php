@@ -9,6 +9,10 @@
     @vite('resources/js/app.js') <!-- Importation de Vite -->
 
     <style>
+        .image-small {
+            max-width: 50px; /* Ajustez la largeur selon vos besoins */
+            height: auto; /* Maintient le ratio d'aspect */
+        }
         body {
             background-color: #f8f9fa;
             font-family: 'Georgia', serif;
