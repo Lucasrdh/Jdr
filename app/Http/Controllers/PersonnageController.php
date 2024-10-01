@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class PersonnageController extends Controller
 {
+    public function getPersonnageWithObjects($personnageId)
+    {
+        return Personnage::with('objets')->find($personnageId);
+    }
+
     // Récupère tous les personnages avec leurs classes
     public function personnages()
     {

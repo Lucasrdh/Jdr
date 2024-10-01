@@ -62,7 +62,7 @@
                     <a class="nav-link" href="{{ route('personnages') }}">Personnages</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('marchands') }}">Marchand</a>
+                    <a class="nav-link" href="{{  route('marchand.index') }}">Marchand</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('histoire') }}">Histoire</a>
