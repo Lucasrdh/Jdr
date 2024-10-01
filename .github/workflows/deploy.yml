@@ -16,7 +16,7 @@ jobs:
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.0'  # Changez en fonction de votre version de PHP
+          php-version: '8.3.6'  # Changez en fonction de votre version de PHP
           extensions: mbstring, xml, curl, mysql, bcmath
 
       - name: Install Composer dependencies
