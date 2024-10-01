@@ -15,5 +15,6 @@ class Objet extends Model
     {
         return $this->belongsToMany(Personnage::class, 'personnage_objet', 'objet_id', 'personnage_id');
     }
-
 }
+
+

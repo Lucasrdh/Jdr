@@ -13,7 +13,11 @@ class Classe extends Model
 
     public function personnages()
     {
-        return $this->belongsToMany(Personnage::class, 'personnage_classe');
+        return $this->belongsToMany(Personnage::class, 'personnage_classe', 'classe_id', 'personnage_id');
+    }
+    public function competences()
+    {
+        return $this->belongsToMany(Competence::class, 'classe_competence', 'classe_id', 'competence_id');
     }
 }
 
