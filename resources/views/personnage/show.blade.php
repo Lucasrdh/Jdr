@@ -101,6 +101,8 @@
                                        data-type="{{ $competence->type_modificateur }}">
                                 {{ $competence->nom }} ({{ $competence->type }})
                                 <strong>(Modificateur: +{{ $competence->modificateur }} {{ $competence->type_modificateur }})</strong>
+                                <br>
+                                <small>{{ $competence->description }}</small> <!-- Affichage de la description -->
                             </li>
                         @endforeach
                     </ul>
@@ -120,6 +122,7 @@
                         </div>
                     </div>
                 </form>
+
 
                 <!-- Ajout des variables pour le JavaScript -->
                 <script>
