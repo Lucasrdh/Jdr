@@ -1,0 +1,38 @@
+name: Deploy Laravel Application
+
+on:
+  push:
+    branches:
+      - main  # Déclencher le déploiement sur la branche 'main'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.0'  # Spécifie la version de PHP que tu veux utiliser
+          extensions: mbstring, xml, bcmath, sqlite3, gd  # Ajoute les extensions PHP nécessaires
+
+      - name: Install Composer dependencies
+        run: composer install --no-progress --no-suggest --prefer-dist
+        
+
+      - name: Copy .env file
+        run: |
+          cp .env.example .env
+          php artisan key:generate  # Générez une clé d'application si nécessaire
+
+      - name: Run migrations
+        run: php artisan migrate --force  # Force l'exécution des migrations en mode production
+
+      - name: Deploy to server
+        run: |
+          ssh username@your-server-ip 'cd /path/to/your/app && git pull origin main && composer install --no-dev && php artisan migrate --force && php artisan config:cache'
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
