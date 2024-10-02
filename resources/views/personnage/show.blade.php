@@ -110,15 +110,15 @@
                     <div class="row">
                         <div class="col-md-4 text-center">
                             <img src="{{ asset('images/general.png') }}" alt="Modificateur Total" class="image-small">
-                            <p>Modificateur total : <span id="modificateur-total">{{ $modificateurTotal }}</span></p>
+                            <p> <b> Modificateur total : <span id="modificateur-total">{{ $modificateurTotal }}</span> </b> </p>
                         </div>
                         <div class="col-md-4 text-center">
                             <img src="{{ asset('images/Attaque.png') }}" alt="Modificateur d'attaque" class="image-small">
-                            <p>Modificateur d'attaque : <span id="modificateur-attaque">{{ $modificateurAttaque }}</span></p>
+                            <p> <b> Modificateur d'attaque : <span id="modificateur-attaque">{{ $modificateurAttaque }}</span> </b> </p>
                         </div>
                         <div class="col-md-4 text-center">
                             <img src="{{ asset('images/defense.png') }}" alt="Modificateur de défense" class="image-small">
-                            <p>Modificateur de défense : <span id="modificateur-defense">{{ $modificateurDefense }}</span></p>
+                            <p> <b>Modificateur de défense : <span   id="modificateur-defense">{{ $modificateurDefense }}</span> </b></p>
                         </div>
                     </div>
                 </form>
