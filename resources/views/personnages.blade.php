@@ -15,7 +15,9 @@
                         </div>
                         <div class="card-body">
                             <p class="card-text">Niveau: {{ $personnage->niveau }}</p>
-                            <p class="card-text">Classe: {{ $personnage->classe }}</p>
+                            @foreach($personnage->classes as $classe)
+                            <p class="card-text">Classe: {{ $classe->nom}}</p>
+                            @endforeach
                             <a href="{{ route('personnage.show', $personnage->id) }}" class="btn btn-primary">Voir Détails</a>
                         </div>
                     </div>
