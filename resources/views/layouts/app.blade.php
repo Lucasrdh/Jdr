@@ -13,31 +13,39 @@
             max-width: 50px; /* Ajustez la largeur selon vos besoins */
             height: auto; /* Maintient le ratio d'aspect */
         }
+
         body {
             background-color: #f8f9fa;
             font-family: 'Georgia', serif;
         }
+
         nav {
             background-color: #343a40;
         }
+
         nav ul {
             padding: 0;
         }
+
         nav li {
             list-style-type: none;
         }
+
         nav a {
             color: #ffffff;
             padding: 15px;
             text-decoration: none;
             transition: background 0.3s;
         }
+
         nav a:hover {
             background-color: #495057;
         }
+
         .container {
             margin-top: 20px;
         }
+
         h1 {
             color: #343a40;
             margin-bottom: 20px;
@@ -50,7 +58,8 @@
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
         <a class="navbar-brand" href="{{ route('home') }}">Jeu de Rôle</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
@@ -62,16 +71,19 @@
                     <a class="nav-link" href="{{ route('personnages') }}">Personnages</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{  route('marchand.index') }}">Marchand</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('histoire') }}">Histoire</a>
+                    <a class="nav-link" href="{{  route('marchand.login') }}">Marchand</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('competences') }}">Compétences</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('objets') }}">Objets</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://carte-jdr-campus-numerique.netlify.app/"> Map</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('histoire') }}">Règles</a>
                 </li>
             </ul>
         </div>

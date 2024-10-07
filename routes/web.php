@@ -4,6 +4,8 @@ use App\Http\Controllers\PersonnageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ObjetController;
 use App\Http\Controllers\CompetenceController;
+use App\Http\Controllers\MarchandController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -27,16 +29,13 @@ Route::get('/objets', [ObjetController::class, 'index'])->name('objets');
 
 Route::get('/personnages/{id}', [PersonnageController::class, 'show'])->name('personnage.show');
 
-use App\Http\Controllers\MarchandController;
 
-// Route pour afficher le marchand
+// Route pour afficher le formulaire de connexion
+// Afficher le formulaire de connexion
+Route::get('/marchand/login', [MarchandController::class, 'showLoginForm'])->name('marchand.login');
+
+// Soumettre le formulaire de connexion
+Route::post('/marchand/login', [MarchandController::class, 'login'])->name('marchand.login.post');
+
+// Afficher la page du marchand après connexion
 Route::get('/marchand', [MarchandController::class, 'index'])->name('marchand.index');
-
-// Route pour se connecter
-Route::post('/marchand/login', [MarchandController::class, 'login'])->name('marchand.login');
-
-// Route pour acheter un objet
-Route::post('/marchand/acheter', [MarchandController::class, 'acheter'])->name('marchand.acheter');
-
-// Route pour vendre un objet
-Route::post('/marchand/vendre', [MarchandController::class, 'vendre'])->name('marchand.vendre');
