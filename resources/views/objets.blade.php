@@ -39,7 +39,7 @@
                 </thead>
                 <tbody>
                 @foreach ($equipements as $equipement)
-                    <tr class="objet-row" data-rarete="{{ getRarityValue($equipement->rarete) }}" data-valeur="{{ $equipement->valeur }}">
+                    <tr class="objet-row" data-rarete="{{ getRarityValue($equipement->rarete) }}" data-valeur="{{ $equipement->valeur }}" data-description="{{ $equipement->description }}">
                         <td><img src="{{ asset($equipement->image) }}" alt="{{ $equipement->nom }}" width="50"></td>
                         <td>{{ $equipement->nom }}</td>
                         <td>{{ $equipement->valeur }}</td>
@@ -107,6 +107,19 @@
     <script src="{{ asset('js/objets.js') }}"></script>
 
     <style>
+        .tooltip {
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 8px;
+            border-radius: 5px;
+            display: none; /* Par défaut, le tooltip est caché */
+            z-index: 1000;
+            max-width: 200px;
+            word-wrap: break-word;
+            pointer-events: none; /* Éviter que la souris interagisse avec le tooltip */
+        }
+
         .object-sections {
             display: flex;
             justify-content: space-between;
