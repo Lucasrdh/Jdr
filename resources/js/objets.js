@@ -1,24 +1,32 @@
-$(document).ready(function() {
-    const tooltip = $('<div class="tooltip"></div>'); // Crée un élément div pour le tooltip
-    $('body').append(tooltip); // Ajoute le tooltip au corps de la page
+$(document).ready(function () {
+    // Survol des objets pour afficher le customTooltip
+    $('.objet-row').hover(function (event) {
+        // Récupérer la description à partir de l'attribut data-description
+        const description = $(this).data('description');
+        console.log('customTooltip data-description: ', description);
 
-    // Lorsqu'on survole une ligne du tableau
-    $('.objet-row').hover(function(event) {
-        const description = $(this).data('description'); // Récupère la description de l'objet
-        tooltip.text(description); // Remplit le tooltip avec la description
+        // Vérifier si l'élément customTooltip existe, sinon le créer
+        let customTooltip = $('#customTooltip');
+        if (customTooltip.length === 0) {
+            customTooltip = $('<div id="customTooltip" class="custom-tooltip"></div>').appendTo('body');
+        }
 
-        // Montre le tooltip et le place près de la souris
-        tooltip.show().css({
-            top: event.pageY + 10 + 'px', // Positionne légèrement en dessous de la souris
+        // Ajouter la description au customTooltip
+        customTooltip.text(description);
+
+        // Positionner et afficher le customTooltip
+        customTooltip.css({
+            top: event.pageY + 10 + 'px',
             left: event.pageX + 10 + 'px'
-        });
-    }, function() {
-        tooltip.hide(); // Cache le tooltip lorsqu'on ne survole plus l'élément
+        }).fadeIn(200); // Afficher avec une animation
+    }, function () {
+        // Cacher le customTooltip lorsque la souris quitte
+        $('#customTooltip').fadeOut(200);
     });
 
-    // Déplace le tooltip avec la souris
-    $('.objet-row').mousemove(function(event) {
-        tooltip.css({
+    // Déplacer le customTooltip avec la souris
+    $('.objet-row').mousemove(function (event) {
+        $('#customTooltip').css({
             top: event.pageY + 10 + 'px',
             left: event.pageX + 10 + 'px'
         });

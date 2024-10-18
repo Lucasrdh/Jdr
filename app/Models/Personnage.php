@@ -13,12 +13,14 @@ class Personnage extends Model
 {
     use HasFactory;
 
-    protected $table = 'personnages';
+    protected $fillable = ['code_identification', 'or'];
+
 
     public function objets()
     {
-        return $this->belongsToMany(Objet::class, 'personnage_objet', 'personnage_id', 'objet_id');
+        return $this->belongsToMany(Objet::class, 'personnage_objet')->withPivot('quantite');
     }
+
 
     public function competences()
     {

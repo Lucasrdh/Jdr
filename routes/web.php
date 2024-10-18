@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ObjetController;
 use App\Http\Controllers\CompetenceController;
 use App\Http\Controllers\MarchandController;
+use App\Http\Controllers\OrController;
 
 
 Route::get('/', function () {
@@ -30,12 +31,17 @@ Route::get('/objets', [ObjetController::class, 'index'])->name('objets');
 Route::get('/personnages/{id}', [PersonnageController::class, 'show'])->name('personnage.show');
 
 
-// Route pour afficher le formulaire de connexion
-// Afficher le formulaire de connexion
+
+
+
+    // Toutes tes routes ici
 Route::get('/marchand/login', [MarchandController::class, 'showLoginForm'])->name('marchand.login');
-
-// Soumettre le formulaire de connexion
 Route::post('/marchand/login', [MarchandController::class, 'login'])->name('marchand.login.post');
-
-// Afficher la page du marchand après connexion
+Route::post('/marchand/logout', [MarchandController::class, 'logout'])->name('marchand.logout');
+Route::post('/marchand/acheter', [MarchandController::class, 'acheter'])->name('marchand.acheter');
+Route::post('/marchand/vendre', [MarchandController::class, 'vendre'])->name('marchand.vendre');
 Route::get('/marchand', [MarchandController::class, 'index'])->name('marchand.index');
+
+Route::get('/marchand/resultat{message}{details}', [MarchandController::class, 'resultat'])->name('marchand.resultat');
+
+Route::get('/pagetest/{id}/{amount}', [OrController::class, 'updateOr']);

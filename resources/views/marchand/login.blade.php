@@ -5,8 +5,8 @@
     <form action="{{ route('marchand.login.post') }}" method="POST"> <!-- POST method -->
         @csrf
         <div class="form-group">
-            <label for="nom">Nom du personnage :</label>
-            <input type="text" name="nom" id="nom" required class="form-control">
+            <label for="code_identification">Code d'identification :</label>
+            <input type="text" name="code_identification" id="code_identification" required class="form-control">
         </div>
         <button type="submit" class="btn btn-primary">Se connecter</button>
     </form>

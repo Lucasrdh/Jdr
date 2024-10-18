@@ -9,12 +9,16 @@ class Objet extends Model
 {
     use HasFactory;
 
-    protected $table = 'objets';
+    public $timestamps = false;
 
+    protected $table = 'objets';
+    protected $fillable = ['nom', 'valeur', 'rarete', 'type', 'image', 'description','stock'];
     public function personnages()
     {
-        return $this->belongsToMany(Personnage::class, 'personnage_objet', 'objet_id', 'personnage_id');
+        return $this->belongsToMany(Personnage::class, 'personnage_objet')->withPivot('quantite');
     }
+
+
 }
 
 

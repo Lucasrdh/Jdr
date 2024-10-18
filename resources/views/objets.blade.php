@@ -46,6 +46,7 @@
                         <td>{!! getRarityStars($equipement->rarete) !!}</td>
                     </tr>
                 @endforeach
+
                 </tbody>
             </table>
         </div>
@@ -64,7 +65,10 @@
                 </thead>
                 <tbody>
                 @foreach ($consommables as $consommable)
-                    <tr class="objet-row" data-rarete="{{ getRarityValue($consommable->rarete) }}" data-valeur="{{ $consommable->valeur }}">
+                    <tr class="objet-row"
+                        data-rarete="{{ getRarityValue($consommable->rarete) }}"
+                        data-valeur="{{ $consommable->valeur }}"
+                        data-description="{{ $consommable->description }}"> <!-- Description ajoutée ici -->
                         <td><img src="{{ asset($consommable->image) }}" alt="{{ $consommable->nom }}" width="50"></td>
                         <td>{{ $consommable->nom }}</td>
                         <td>{{ $consommable->valeur }}</td>
@@ -89,7 +93,10 @@
                 </thead>
                 <tbody>
                 @foreach ($autres as $autre)
-                    <tr class="objet-row" data-rarete="{{ getRarityValue($autre->rarete) }}" data-valeur="{{ $autre->valeur }}">
+                    <tr class="objet-row"
+                        data-rarete="{{ getRarityValue($autre->rarete) }}"
+                        data-valeur="{{ $autre->valeur }}"
+                        data-description="{{ $autre->description }}"> <!-- Description ajoutée ici -->
                         <td><img src="{{ asset($autre->image) }}" alt="{{ $autre->nom }}" width="50"></td>
                         <td>{{ $autre->nom }}</td>
                         <td>{{ $autre->valeur }}</td>
@@ -99,26 +106,31 @@
                 </tbody>
             </table>
         </div>
-    </div>
 
-    <!-- Inclure jQuery à partir du CDN -->
+
+        <!-- Inclure jQuery à partir du CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <!-- Inclure votre fichier JavaScript externe -->
-    <script src="{{ asset('js/objets.js') }}"></script>
 
     <style>
-        .tooltip {
+        .custom-tooltip {
             position: absolute;
-            background-color: rgba(0, 0, 0, 0.7);
+            background-color: #000;
             color: #fff;
-            padding: 8px;
+            padding: 10px;
             border-radius: 5px;
-            display: none; /* Par défaut, le tooltip est caché */
-            z-index: 1000;
-            max-width: 200px;
-            word-wrap: break-word;
-            pointer-events: none; /* Éviter que la souris interagisse avec le tooltip */
+            font-size: 12px;
+            z-index: 9999;
+            display: none;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
         }
+
+
+
+
+        .objet-row:hover .tooltip {
+            opacity: 1; /* Affiche le tooltip lors du survol */
+        }
+
 
         .object-sections {
             display: flex;
@@ -208,7 +220,6 @@
         });
     </script>
 @endsection
-
 @php
     function getRarityStars($rarete) {
         switch ($rarete) {

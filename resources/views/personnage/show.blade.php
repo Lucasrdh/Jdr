@@ -10,7 +10,7 @@
                 <img src="{{ asset($personnage->image) }}" alt="Image du personnage" class="img-fluid mb-3">
 
                 <h3>Or :</h3>
-                <p>{{ $personnage->Or }} Pièces</p>
+                <p>{{ $personnage->or }} Pièces</p>
 
                 <h2>État de santé</h2>
                 <ul>
@@ -50,40 +50,45 @@
                         <h3>Équipements</h3>
                         <ul>
                             @foreach ($personnage->objets->where('type', 'équipement') as $objet)
-                                <li>
+                                <li class="objet-container">
                                     <img src="{{ asset($objet->image) }}" alt="{{ $objet->nom }}" class="img-fluid" style="width: 30px; height: 30px; vertical-align: middle;">
                                     {{ $objet->nom }}
                                     @if ($objet->modificateur)
                                         <strong>(Modificateur: +{{ $objet->modificateur }} {{ $objet->type_modificateur }})</strong>
                                     @endif
+                                    <div class="objet-description">{{ $objet->description }}</div> <!-- Description au hover -->
                                 </li>
                             @endforeach
                         </ul>
                     </div>
+
                     <div class="col-md-4">
                         <h3>Consommables</h3>
                         <ul>
                             @foreach ($personnage->objets->where('type', 'consommable') as $objet)
-                                <li>
+                                <li class="objet-container">
                                     <img src="{{ asset($objet->image) }}" alt="{{ $objet->nom }}" class="img-fluid" style="width: 30px; height: 30px; vertical-align: middle;">
                                     {{ $objet->nom }}
                                     @if ($objet->modificateur)
                                         <strong>(Modificateur: +{{ $objet->modificateur }} {{ $objet->type_modificateur }})</strong>
                                     @endif
+                                    <div class="objet-description">{{ $objet->description }}</div> <!-- Description au hover -->
                                 </li>
                             @endforeach
                         </ul>
                     </div>
+
                     <div class="col-md-4">
                         <h3>Autres</h3>
                         <ul>
                             @foreach ($personnage->objets->where('type', 'autre') as $objet)
-                                <li>
+                                <li class="objet-container">
                                     <img src="{{ asset($objet->image) }}" alt="{{ $objet->nom }}" class="img-fluid" style="width: 30px; height: 30px; vertical-align: middle;">
                                     {{ $objet->nom }}
                                     @if ($objet->modificateur)
                                         <strong>(Modificateur: +{{ $objet->modificateur }} {{ $objet->type_modificateur }})</strong>
                                     @endif
+                                    <div class="objet-description">{{ $objet->description }}</div> <!-- Description au hover -->
                                 </li>
                             @endforeach
                         </ul>
@@ -118,11 +123,10 @@
                         </div>
                         <div class="col-md-4 text-center">
                             <img src="{{ asset('images/defense.png') }}" alt="Modificateur de défense" class="image-small">
-                            <p> <b>Modificateur de défense : <span   id="modificateur-defense">{{ $modificateurDefense }}</span> </b></p>
+                            <p> <b>Modificateur de défense : <span id="modificateur-defense">{{ $modificateurDefense }}</span> </b></p>
                         </div>
                     </div>
                 </form>
-
 
                 <!-- Ajout des variables pour le JavaScript -->
                 <script>
@@ -133,4 +137,30 @@
             </div>
         </div>
     </div>
+
+    <!-- Inclure jQuery à partir du CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        .objet-container {
+            position: relative;
+        }
+
+        .objet-description {
+            display: none;
+            position: absolute;
+            bottom: -20px;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+            font-size: 0.9em;
+            width: 100%;
+        }
+
+        .objet-container:hover .objet-description {
+            display: block;
+        }
+    </style>
+
 @endsection
