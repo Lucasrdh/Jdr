@@ -44,4 +44,8 @@ Route::get('/marchand', [MarchandController::class, 'index'])->name('marchand.in
 
 Route::get('/marchand/resultat{message}{details}', [MarchandController::class, 'resultat'])->name('marchand.resultat');
 
+Route::post('/consommable/utiliser', [PersonnageController::class, 'utiliserConsommable'])->name('consommable.utiliser');
+
+
 Route::get('/pagetest/{id}/{amount}', [OrController::class, 'updateOr']);
+

@@ -8,6 +8,34 @@ use Illuminate\Http\Request;
 
 class PersonnageController extends Controller
 {
+    public function utiliserConsommable(Request $request)
+    {
+        // Récupérer le personnage à partir de la session
+        $personnage = $request->session()->get('personnage');
+
+        if (!$personnage) {
+            return response()->json(['error' => 'Personnage non trouvé'], 404);
+        }
+
+        // Récupérer l'objet consommable associé au personnage
+        $objet = $personnage->objets()->where('objet_id', $request->input('objet_id'))->first();
+
+        if ($objet && $objet->pivot->quantite > 0) {
+            // Réduire la quantité
+            $nouvelleQuantite = $objet->pivot->quantite - 1;
+
+            // Si la quantité est > 0, on met à jour, sinon on retire l'objet
+            if ($nouvelleQuantite > 0) {
+                $personnage->objets()->updateExistingPivot($objet->id, ['quantite' => $nouvelleQuantite]);
+            } else {
+                $personnage->objets()->detach($objet->id); // Si la quantité tombe à 0, on retire l'objet
+            }
+
+            return response()->json(['success' => 'Consommable utilisé']);
+        }
+
+        return response()->json(['error' => 'Objet non trouvé ou quantité insuffisante'], 400);
+    }
 
 
     // Récupère tous les personnages avec leurs classes
