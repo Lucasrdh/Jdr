@@ -9,6 +9,7 @@
         <thead>
         <tr>
             <th>Nom</th>
+            <th>Description</th> <!-- Nouvelle colonne pour la description -->
             <th>Prix</th>
             <th>Stock disponible</th>
             <th>Action</th>
@@ -18,6 +19,7 @@
         @foreach ($objets as $objet)
             <tr>
                 <td>{{ $objet->nom }}</td>
+                <td>{{ $objet->description }}</td> <!-- Affiche la description de l'objet -->
                 <td>{{ $objet->valeur }} Pièces</td>
                 <td>{{ $objet->stock ?: 'Rupture de stock' }}</td>
                 <td>
@@ -27,7 +29,6 @@
                             <input type="hidden" name="objet_id" value="{{ $objet->id }}">
                             <button type="submit" class="btn btn-success">Acheter</button>
                         </form>
-
                     @else
                         <span class="text-muted">Indisponible</span>
                     @endif
@@ -58,11 +59,9 @@
                         <input type="hidden" name="objet_id" value="{{ $objet->id }}">
                         <button type="submit">Vendre</button>
                     </form>
-
                 </td>
             </tr>
         @endforeach
-
         </tbody>
     </table>
 @endsection

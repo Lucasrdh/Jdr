@@ -145,9 +145,9 @@ class MarchandController extends Controller
             }
 
             // Ajouter la valeur de l'objet à l'or du personnage
-            $personnage->or += $objet->valeur;
+            $gainOr = $objet->valeur * 0.7;
+            $personnage->or += $gainOr;
             $personnage->save();
-
             // Actualiser les données du personnage dans la session après la vente
             $personnageActualise = Personnage::with('objets')->find($personnage->id);
             $request->session()->put('personnage', $personnageActualise);
