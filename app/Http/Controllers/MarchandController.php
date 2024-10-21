@@ -163,6 +163,7 @@ class MarchandController extends Controller
         return redirect()->route('marchand.resultat', [
             'message' => 'Erreur',
             'details' => 'Vous ne possédez pas cet objet.'
+
         ]);
     }
 

@@ -13,7 +13,7 @@ export default defineConfig({
         port: 5178,       // Le port utilisé par Vite
         cors: true,       // Activer les requêtes CORS
         hmr: {
-            host: '172.22.114.110', // Remplace par l'adresse IP de ton ordinateur sur le réseau local
+            host: '172.22.114.202', // Remplace par l'adresse IP de ton ordinateur sur le réseau local
             port: 5178,             // Assure-toi que c'est le même port que celui défini plus haut
         },
     },

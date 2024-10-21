@@ -82,9 +82,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="https://carte-jdr-campus-numerique.netlify.app/"> Map</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('histoire') }}">Règles</a>
-                </li>
+
             </ul>
         </div>
     </div>

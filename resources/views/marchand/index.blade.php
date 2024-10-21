@@ -52,7 +52,7 @@
             <tr>
                 <td>{{ $objet->nom }}</td>
                 <td>{{ $objet->pivot->quantite }}</td> <!-- Affiche la quantité -->
-                <td>{{ $objet->valeur }}</td>
+                <td>{{ $objet->valeur * 0.7 }}</td>
                 <td>
                     <form action="{{ route('marchand.vendre') }}" method="POST">
                         @csrf
