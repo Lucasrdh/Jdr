@@ -31,7 +31,8 @@
         l'élément du baton, et le grimoire augmente les attaques magiques !
         tant qu'à lui est spécial puisqu'il augmente vos attaques magique seulement ! mais c'est très fort car il reste
         dans votre sacoche et ne prend donc pas de mains, vous pouvez donc avoir un baton,une épée et un grimoire
-        (attention la page perso sera fausser) !
+        (attention votre attaque prendra en compte le grimoire ET l'arme ! Soit vous lancez un sort, soit vous attaquer,
+        sauf si vous trouvez une solution pour utiliser les deux) !
         mais vous pouvez malheureusement n'en possédez que un seul (petite sacoche) !
     </p>
 
