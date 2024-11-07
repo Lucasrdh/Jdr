@@ -13,8 +13,12 @@ Liste des personnages : Consultez votre personnage et explorez ceux des autres j
 Catalogue des classes : Découvrez les différentes classes disponibles pour les personnages.
 Compétences détaillées : Accédez aux compétences uniques de chaque classe.
 Marchand en ligne : Achetez et vendez des équipements pour améliorer vos personnages.
+
 ⚙️ Technologies Utilisées
+
 Backend : PHP avec le framework Laravel
 Frontend : VUE.JS pour une expérience utilisateur interactive
+
 🙌 Contribuer et échanger
+
 Merci de visiter mon projet ! Si tu souhaites contribuer, partager des conseils, ou poser des questions, n’hésite surtout pas à me contacter. Toute aide est la bienvenue pour rendre ce site encore plus utile pour notre jeu de rôle !
