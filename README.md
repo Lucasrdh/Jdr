@@ -20,7 +20,8 @@ Marchand en ligne : Achetez et vendez des équipements pour améliorer vos perso
 ⚙️ Technologies Utilisées
 
 Backend : PHP avec le framework Laravel
-Frontend : VUE.JS pour une expérience utilisateur interactive
+
+Frontend : JavaScript pour une expérience utilisateur interactive 
 
 🙌 Contribuer et échanger
 
