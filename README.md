@@ -10,8 +10,11 @@ En tant qu'étudiant et animateur d'un jeu de rôle sur Discord, je développe c
 Ce site inclut les fonctionnalités suivantes pour enrichir notre expérience de jeu :
 
 Liste des personnages : Consultez votre personnage et explorez ceux des autres joueurs !
+
 Catalogue des classes : Découvrez les différentes classes disponibles pour les personnages.
+
 Compétences détaillées : Accédez aux compétences uniques de chaque classe.
+
 Marchand en ligne : Achetez et vendez des équipements pour améliorer vos personnages.
 
 ⚙️ Technologies Utilisées
