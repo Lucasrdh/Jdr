@@ -9,5 +9,5 @@ class ObjetClasse extends Pivot
 {
     use HasFactory;
 
-    protected $table = 'objet_classe'; // Nom de la table dans la base de données
+    protected $table = 'objet_classe';
 }
