@@ -31,10 +31,6 @@ Route::get('/objets', [ObjetController::class, 'index'])->name('objets');
 Route::get('/personnages/{id}', [PersonnageController::class, 'show'])->name('personnage.show');
 
 
-
-
-
-    // Toutes tes routes ici
 Route::get('/marchand/login', [MarchandController::class, 'showLoginForm'])->name('marchand.login');
 Route::post('/marchand/login', [MarchandController::class, 'login'])->name('marchand.login.post');
 Route::post('/marchand/logout', [MarchandController::class, 'logout'])->name('marchand.logout');
@@ -46,6 +42,6 @@ Route::get('/marchand/resultat{message}{details}', [MarchandController::class, '
 
 Route::post('/consommable/utiliser', [PersonnageController::class, 'utiliserConsommable'])->name('consommable.utiliser');
 
-
+//test
 Route::get('/pagetest/{id}/{amount}', [OrController::class, 'updateOr']);
 
