@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Personnage;
 use App\Models\Objet;
 use App\Models\Competence;
+use Illuminate\Http\Request;
 class AdminPersonnageController
 {
     public function manage()
@@ -27,10 +28,16 @@ class AdminPersonnageController
             'or' => 'nullable|integer|min:0',
         ]);
 
-        $personnage->update($request->only([
-            'niveau', 'blesse', 'severement_blesse', 'malade',
-            'tres_malade', 'bras_couper', 'jambe_couper', 'or'
-        ]));
+        $personnage->update([
+            'niveau' => $request->input('niveau'),
+            'or' => $request->input('or'),
+            'blesse' => $request->input('blesse', 0),
+            'severement_blesse' => $request->input('severement_blesse', 0),
+            'malade' => $request->input('malade', 0),
+            'tres_malade' => $request->input('tres_malade', 0),
+            'bras_couper' => $request->input('bras_couper', 0),
+            'jambe_couper' => $request->input('jambe_couper', 0),
+        ]);
 
         return redirect()->back()->with('success', 'Propriétés du personnage mises à jour.');
     }

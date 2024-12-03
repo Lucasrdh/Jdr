@@ -36,27 +36,34 @@
             </div>
             <div class="form-group">
                 <label for="blesse">Blessé :</label>
-                <input type="checkbox" name="blesse" id="blesse" {{ $selectedPersonnage->blesse ? 'checked' : '' }}>
+                <input type="hidden" name="blesse" value="0">
+                <input type="checkbox" name="blesse" id="blesse" value="1" {{ $selectedPersonnage->blesse ? 'checked' : '' }}>
             </div>
             <div class="form-group">
                 <label for="severement_blesse">Sévèrement blessé :</label>
-                <input type="checkbox" name="severement_blesse" id="severement_blesse" {{ $selectedPersonnage->severement_blesse ? 'checked' : '' }}>
+                <input type="hidden" name="severement_blesse" value="0">
+                <input type="checkbox" name="severement_blesse" id="severement_blesse" value="1" {{ $selectedPersonnage->severement_blesse ? 'checked' : '' }}>
             </div>
+
             <div class="form-group">
                 <label for="malade">Malade :</label>
-                <input type="checkbox" name="malade" id="malade" {{ $selectedPersonnage->malade ? 'checked' : '' }}>
+                <input type="hidden" name="malade" value="0">
+                <input type="checkbox" name="malade" id="malade" value="1" {{ $selectedPersonnage->malade ? 'checked' : '' }}>
             </div>
             <div class="form-group">
                 <label for="tres_malade">Très malade :</label>
-                <input type="checkbox" name="tres_malade" id="tres_malade" {{ $selectedPersonnage->tres_malade ? 'checked' : '' }}>
+                <input type="hidden" name="tres_malade" value="0">
+                <input type="checkbox" name="tres_malade" id="tres_malade" value="1" {{ $selectedPersonnage->tres_malade ? 'checked' : '' }}>
             </div>
             <div class="form-group">
                 <label for="bras_couper">Bras coupé :</label>
-                <input type="checkbox" name="bras_couper" id="bras_couper" {{ $selectedPersonnage->bras_couper ? 'checked' : '' }}>
+                <input type="hidden" name="bras_couper" value="0">
+                <input type="checkbox" name="bras_couper" id="bras_couper" value="1" {{ $selectedPersonnage->bras_couper ? 'checked' : '' }}>
             </div>
             <div class="form-group">
                 <label for="jambe_couper">Jambe coupée :</label>
-                <input type="checkbox" name="jambe_couper" id="jambe_couper" {{ $selectedPersonnage->jambe_couper ? 'checked' : '' }}>
+                <input type="hidden" name="jambe_couper" value="0">
+                <input type="checkbox" name="jambe_couper" id="jambe_couper" value="1" {{ $selectedPersonnage->jambe_couper ? 'checked' : '' }}>
             </div>
 
             <button type="submit" class="btn btn-primary">Mettre à jour</button>

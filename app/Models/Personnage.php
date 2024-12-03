@@ -13,7 +13,7 @@ class Personnage extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['code_identification', 'or'];
+    protected $fillable = ['code_identification', 'or','blesse','severement_blesse','malade','tres_malade','bras_couper','jambe_couper',];
 
 
     public function objets()
