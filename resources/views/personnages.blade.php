@@ -9,7 +9,7 @@
             @foreach ($personnages as $personnage)
                 <div class="col-md-4 mb-4">
                     <div class="card text-center">
-                        <img src="{{ asset($personnage->image) }}" class="card-img-top" alt="{{ $personnage->nom }}">
+                        <img src="{{ asset($personnage->image) }}" class="card-img-top wow" alt="{{ $personnage->nom }}">
                         <div class="card-header">
                             <h5 class="card-title">{{ $personnage->nom }}</h5>
                         </div>
@@ -26,3 +26,10 @@
         </div>
     </div>
 @endsection
+<style>
+    .wow {
+        height: 400px;
+        object-fit: cover;
+
+    }
+</style>
