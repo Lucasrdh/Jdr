@@ -68,7 +68,7 @@
                             @foreach ($personnage->objets->where('type', 'consommable') as $objet)
                                 <li class="objet-container">
                                     <img src="{{ asset($objet->image) }}" alt="{{ $objet->nom }}" class="img-fluid" style="width: 30px; height: 30px; vertical-align: middle;">
-                                    {{ $objet->nom }}
+                                    {{ $objet->nom }} (Quantité : {{ $objet->pivot->quantite }})
                                     @if ($objet->modificateur)
                                         <strong>(Modificateur: +{{ $objet->modificateur }} {{ $objet->type_modificateur }})</strong>
                                     @endif
@@ -84,7 +84,7 @@
                             @foreach ($personnage->objets->where('type', 'autre') as $objet)
                                 <li class="objet-container">
                                     <img src="{{ asset($objet->image) }}" alt="{{ $objet->nom }}" class="img-fluid" style="width: 30px; height: 30px; vertical-align: middle;">
-                                    {{ $objet->nom }}
+                                    {{ $objet->nom }} (Quantité : {{ $objet->pivot->quantite }})
                                     @if ($objet->modificateur)
                                         <strong>(Modificateur: +{{ $objet->modificateur }} {{ $objet->type_modificateur }})</strong>
                                     @endif
