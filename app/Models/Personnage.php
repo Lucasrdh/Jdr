@@ -13,7 +13,7 @@ class Personnage extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['code_identification', 'or','blesse','severement_blesse','malade','tres_malade','bras_couper','jambe_couper',];
+    protected $fillable = ['code_identification','niveau','or','blesse','severement_blesse','malade','tres_malade','bras_couper','jambe_couper',];
 
 
     public function objets()
@@ -31,5 +31,23 @@ class Personnage extends Model
     {
         return $this->belongsToMany(Classe::class, 'personnage_classe', 'personnage_id', 'classe_id');
     }
+    public function getPrixModifie(Objet $objet)
+    {
+        $modificateurs = ModificateurPrix::where(function ($query) use ($objet) {
+            $query->where('objet_id', $objet->id) // Modificateurs spécifiques à cet objet
+            ->orWhereNull('objet_id');      // Modificateurs globaux
+        })
+            ->where(function ($query) {
+                $query->where('source_type', 'competence')
+                    ->whereIn('source_id', $this->competences->pluck('id'))
+                    ->orWhere('source_type', 'item')
+                    ->whereIn('source_id', $this->objets->pluck('id'));
+            })
+            ->get();
+
+        $totalModificateur = $modificateurs->sum('modificateur');
+        return $objet->prix + ($objet->prix * $totalModificateur / 100);
+    }
+
 }
 
